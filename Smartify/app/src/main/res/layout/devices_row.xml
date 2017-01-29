@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/listPreferredItemHeight"
+                android:orientation="horizontal"
+                android:background="@drawable/selector_row">
+
+    <ImageView
+        android:id="@+id/device_opened"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:background="@drawable/ic_circle"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/device_name"
+        android:text="Garage"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:background="?android:attr/selectableItemBackground"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:gravity="center_vertical"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="0"
+        android:id="@+id/close"
+        android:text="close"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="0"
+        android:id="@+id/open"
+        android:text="open"/>
+
+</LinearLayout>

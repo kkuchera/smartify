@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.example.smartify">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".devices.DevicesActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".editdevice.EditDeviceActivity"
+            android:label="@string/title_activity_device_edit"
+            android:parentActivityName=".devices.DevicesActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateVisible|adjustResize">
+        </activity>
+
+        <service
+            android:name=".data.ServerRequestIntentService"
+            android:exported="false"/>
+        <service
+            android:name=".geofence.GeofenceIntentService"
+            android:exported="false"/>
+
+        <provider
+            android:name=".data.DevicesContentProvider"
+            android:authorities="com.example.smartify.data.devicescontentprovider"
+            android:exported="false"/>
+
+        <receiver
+            android:name=".geofence.GeofenceReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.example.smartify.geofence.ACTION_GEOFENCE_TRIGGER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".geofence.BootCompletedReceiver"
+                  android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>
