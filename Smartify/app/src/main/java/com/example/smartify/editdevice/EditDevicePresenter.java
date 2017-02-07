@@ -76,7 +76,7 @@ class EditDevicePresenter implements EditDeviceContract.UserActionsListener {
             mView.longitudeRequired();
             return false;
         }
-        if (!deviceId.matches("[0-9]+")){
+        if (!deviceId.matches("[a-z0-9]+")){
             mView.deviceIdInvalid();
             return false;
         }
